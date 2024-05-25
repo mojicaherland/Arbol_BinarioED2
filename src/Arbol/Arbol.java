@@ -35,6 +35,22 @@ public class Arbol {
         return nuevoRaiz;
     }
 
+    //recorrido preOrden
+    public void repreOrden() {
+        recPreOrdenRecursivo(raiz); //
+    }
+
+    private void recPreOrdenRecursivo(Nodo nodo) {
+        //caso base
+        if (nodo == null) {
+            return;
+        }
+        //caso gral
+        System.out.print(nodo.elem + " "); //padre
+        recPreOrdenRecursivo(nodo.izq); //hijo izq
+        recPreOrdenRecursivo(nodo.der); //hijo der
+    }
+
     //recorrido inorden
     public void recInOrden() {
         recInOrdenRecursivo(raiz);
@@ -51,4 +67,18 @@ public class Arbol {
         recInOrdenRecursivo(nuevoRaiz.der); //hijo der
     }
 
+    //recorrido postOrden
+    public void recPostOrden() {
+        recPostOrdenRecursivo(raiz);
+    }
+
+    private void recPostOrdenRecursivo(Nodo nodo) {
+        if (nodo == null) {
+            return;
+        }
+        //caso gral
+        recPostOrdenRecursivo(nodo.izq); //hijo izq
+        recPostOrdenRecursivo(nodo.der); //hijo der
+        System.out.print(nodo.elem + " "); //raiz
+    }
 }
